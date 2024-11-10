@@ -3,9 +3,10 @@ import DiabetesFileUpload from "./components/DiabetesFileUpload";
 import Header from "./components/Header";
 import "./styles/globals.css";
 import PredictDiabetes from "./components/PredictDiabetes";
+import { Guide } from "./components/Guide";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("Model");
+  const [activeTab, setActiveTab] = useState("Guide");
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
@@ -16,6 +17,8 @@ function App() {
         return <DiabetesFileUpload />;
       case "Predict Diabetes":
         return <PredictDiabetes />;
+      case "Guide":
+        return <Guide />;
       default:
         return null;
     }

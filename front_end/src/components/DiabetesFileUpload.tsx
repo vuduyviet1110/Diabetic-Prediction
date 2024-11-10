@@ -129,7 +129,7 @@ const DiabetesFileUpload = () => {
 
   return (
     <Card className="w-full max-w-4xl mx-auto">
-      <CardHeader>
+      <CardHeader className="flex flex-col items-center justify-center">
         <CardTitle>Diabetes Prediction - CSV Upload</CardTitle>
         <p className="mt-2 text-sm text-gray-600">
           Upload your CSV file to get predictions
@@ -137,27 +137,29 @@ const DiabetesFileUpload = () => {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid w-full max-w-sm items-center gap-1.5">
-            <div className="flex items-center justify-center w-full">
-              <label
-                htmlFor="file-upload"
-                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
-              >
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <Upload className="w-8 h-8 mb-2 text-gray-500" />
-                  <p className="mb-2 text-sm text-gray-500">
-                    <span className="font-semibold">Click to upload</span>
-                  </p>
-                  <p className="text-xs text-gray-500">CSV file only</p>
-                </div>
-                <input
-                  id="file-upload"
-                  type="file"
-                  accept=".csv"
-                  className="hidden"
-                  onChange={handleFileChange}
-                />
-              </label>
+          <div className="flex items-center justify-center min-h-72">
+            <div className="grid col-span-1 w-full max-w-sm items-center gap-1.5">
+              <div className="flex items-center justify-center w-full">
+                <label
+                  htmlFor="file-upload"
+                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+                >
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <Upload className="w-8 h-8 mb-2 text-gray-500" />
+                    <p className="mb-2 text-sm text-gray-500">
+                      <span className="font-semibold">Click to upload</span>
+                    </p>
+                    <p className="text-xs text-gray-500">CSV file only</p>
+                  </div>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    accept=".csv"
+                    className="hidden"
+                    onChange={handleFileChange}
+                  />
+                </label>
+              </div>
             </div>
           </div>
 
@@ -195,7 +197,11 @@ const DiabetesFileUpload = () => {
             </div>
           )}
 
-          <Button type="submit" className="w-full" disabled={loading || !file}>
+          <Button
+            type="submit"
+            className="text-white w-1/3 text-center flex justify-self-center"
+            disabled={loading || !file}
+          >
             {loading ? "Processing..." : "Analyze"}
           </Button>
 
@@ -277,7 +283,7 @@ const DiabetesFileUpload = () => {
               <div>
                 <h4 className="font-medium">Cross-validation Scores</h4>
                 {metrics.cross_val_scores.length > 5 ? (
-                  <div>
+                  <div className="flex flex-col space-x-2">
                     <p id="cross-val-scores">
                       {metrics.cross_val_scores.slice(0, 5).join(" ; ")}
                     </p>

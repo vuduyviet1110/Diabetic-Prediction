@@ -8,7 +8,16 @@ const Header = ({ activeTab, onTabChange }: any) => {
           <button
             className={cn(
               "hover:text-blue-500 hover:animate-pulse",
-              activeTab === "Model" ? "text-blue-500" : ""
+              activeTab === "Guide" ? "text-blue-500 scale-110" : ""
+            )}
+            onClick={() => onTabChange("Guide")}
+          >
+            Guide
+          </button>
+          <button
+            className={cn(
+              "hover:text-blue-500 hover:animate-pulse",
+              activeTab === "Model" ? "text-blue-500 scale-110" : ""
             )}
             onClick={() => onTabChange("Model")}
           >
@@ -17,7 +26,7 @@ const Header = ({ activeTab, onTabChange }: any) => {
           <button
             className={cn(
               "hover:text-blue-100 hover:animate-pulse",
-              activeTab === "Predict Diabetes" ? "text-blue-100" : ""
+              activeTab === "Predict Diabetes" ? "text-blue-500 scale-110" : ""
             )}
             onClick={() => onTabChange("Predict Diabetes")}
           >
