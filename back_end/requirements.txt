@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pandas
+numpy
+scikit-learn
+matplotlib
+python-jose
+python-dotenv
