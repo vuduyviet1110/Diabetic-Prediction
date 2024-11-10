@@ -131,6 +131,9 @@ const DiabetesFileUpload = () => {
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle>Diabetes Prediction - CSV Upload</CardTitle>
+        <p className="mt-2 text-sm text-gray-600">
+          Upload your CSV file to get predictions
+        </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -193,7 +196,7 @@ const DiabetesFileUpload = () => {
           )}
 
           <Button type="submit" className="w-full" disabled={loading || !file}>
-            {loading ? "Processing..." : "Predict"}
+            {loading ? "Processing..." : "Analyze"}
           </Button>
 
           {predictions && (
